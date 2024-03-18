@@ -6,7 +6,7 @@ function App() {
 
   return (
    <>
-   <h1>Image Gallery</h1>
+   <h1 className='text-center'>Image Gallery</h1>
    <Image/>
    </>
   )

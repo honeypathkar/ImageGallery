@@ -1,52 +1,65 @@
 import React, { useState, useEffect } from "react";
 import Gallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
-import { createClient } from "pexels";
-// import images from "./imageData"
 
 export default function Image() {
-
   const [photos, setPhotos] = useState([]);
   const [search, setSearch] = useState("nature");
-
-  const API_KEY = "huDDlpIgOThBpkRYMwQ9vCzz2zoe4fFmiPmuzx1ANHdRznjzUqP92btg";
-  const client = createClient(API_KEY);
-
-  const fetchPhotos = async () => {
+  
+  const fetchImages = async () => {
     try {
-      const response = await client.photos.search({
-        query: search,
-        per_page: 10,
-      });
+      const response = await fetch(
+        `https://api.pexels.com/v1/search?query=${search}&per_page=20`,
+        {
+          headers: {
+            Authorization:
+              "XyZhRCpsh7fqoyR9EeLl1clSXTv60dVkvk6uWrSJVAPOqnf6Pa9vc4ob",
+          },
+        }
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch images");
+      }
+      const data = await response.json();
+      console.log(data);
       setPhotos(
-        response.photos.map((photo) => ({
+        data.photos.map((photo) => ({
           original: photo.src.landscape,
           thumbnail: photo.src.landscape,
           description: photo.photographer,
         }))
       );
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error fetching images:", error);
     }
   };
 
-
   useEffect(() => {
     let timer = setTimeout(() => {
-      fetchPhotos();
+      fetchImages();
     }, 3000);
     return () => clearTimeout(timer);
-    
   }, [search]);
 
   return (
-    <div>
-      <input
+    <div className="container">
+      <div className="input-group mb-3">
+        <input
+          type="search"
+          className="form-control"
+          placeholder=""
+          aria-label="Example text with button addon"
+          aria-describedby="button-addon1"
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </div>
+
+      {/*<input
         type="search"
         style={{ marginBottom: "10px", padding: "10px 10px 10px 10px" }}
         onChange={(e) => setSearch(e.target.value)}
-      />
-      <Gallery items={photos} />
+  />*/}
+      <Gallery items={photos} showIndex="true" showBullets="true"/>
     </div>
   );
 }
