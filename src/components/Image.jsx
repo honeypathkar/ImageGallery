@@ -14,8 +14,9 @@ export default function Image(props) {
   const [error, setError] = useState(false);
   const [imageOrientaion, setImageOrientaion] = useState("landscape");
 
-  const handlePos = (newPos) => {
-    setPos(newPos);
+  const capitalize = (word) => {
+    const lower = word.toLowerCase();
+    return lower.charAt(0).toUpperCase() + lower.slice(1);
   };
 
   const fetchImages = async () => {
@@ -48,7 +49,7 @@ export default function Image(props) {
               imageOrientaion === "landscape"
                 ? photo.src.landscape
                 : photo.src.portrait,
-            description: photo.photographer,
+            description: capitalize(photo.photographer),
           }))
         );
         setError(false);
@@ -71,6 +72,11 @@ export default function Image(props) {
   const handleImageOrientation = (orientation) => {
     setImageOrientaion(orientation);
   };
+
+  const handlePos = (newPos) => {
+    setPos(newPos);
+  };
+
 
   return (
     <div className="container" style={{ marginTop: "80px" }}>
@@ -110,10 +116,11 @@ export default function Image(props) {
           onThumbnailPositionChanged={handlePos}
         />
       )}
+      <div id="thumbnailBox">
       <div className="thumbnail">
         <label>
           Thumbnail Position:
-          <select value={pos} onChange={(e) => handlePos(e.target.value)}>
+          <select value={pos} onChange={(e) => handlePos(e.target.value)} className="from-select">
             <option value="bottom">Bottom</option>
             <option value="top">Top</option>
             <option value="left">Left</option>
@@ -134,6 +141,8 @@ export default function Image(props) {
           </select>
         </label>
       </div>
+      </div>
+      
     </div>
   );
 }

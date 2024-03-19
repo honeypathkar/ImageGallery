@@ -14,11 +14,11 @@ export default function Navbar(props) {
     setShowThumb,
     setPlayButton,
     setFullScreen,
-    setShowNav
+    setShowNav,
   } = props;
   return (
     <div>
-      <nav className="navbar fixed-top" style={{backgroundColor: "#e3f2fd"}}>
+      <nav className="navbar fixed-top" style={{ backgroundColor: "#e3f2fd" }}>
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
             Image Gallery
@@ -38,7 +38,7 @@ export default function Navbar(props) {
             tabindex="-1"
             id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel"
-            style={{backgroundColor: "#e3f2fd"}}
+            style={{ backgroundColor: "#e3f2fd" }}
           >
             <div className="offcanvas-header">
               <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
@@ -71,7 +71,7 @@ export default function Navbar(props) {
                   <input
                     type="checkbox"
                     onClick={() => setFullScreen(!fullScreen)}
-                    checked={fullScreen === true?true:false}
+                    checked={fullScreen === true ? true : false}
                   />
                   <label>Full Screen Button</label>
                 </li>
@@ -79,7 +79,7 @@ export default function Navbar(props) {
                   <input
                     type="checkbox"
                     onClick={() => setShowThumb(!showThumb)}
-                    checked={showThumb === true?true:false}
+                    checked={showThumb === true ? true : false}
                   />
                   <label>Show Thumbnail</label>
                 </li>
@@ -87,7 +87,7 @@ export default function Navbar(props) {
                   <input
                     type="checkbox"
                     onClick={() => setPlayButton(!playButton)}
-                    checked={playButton === true?true:false}
+                    checked={playButton === true ? true : false}
                   />
                   <label>Play Button</label>
                 </li>
@@ -95,9 +95,18 @@ export default function Navbar(props) {
                   <input
                     type="checkbox"
                     onClick={() => setShowNav(!showNav)}
-                    checked={showNav === true?true:false}
+                    checked={showNav === true ? true : false}
                   />
                   <label>Show Navigation</label>
+                </li>
+                <li className="nav-item" style={{padding: "10px 30px"}}>
+                  <a
+                    href="https://github.com/honeypatkar/ImageGallery"
+                    class="btn btn-outline-primary"
+                    target="_blank"
+                  >
+                    View on Github
+                  </a>
                 </li>
               </ul>
             </div>

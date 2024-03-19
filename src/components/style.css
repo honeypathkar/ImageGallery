@@ -1,47 +1,63 @@
 .thumbnail {
-    display: flex;
-    margin: 30px 30px 30px 0px;
+	display: flex;
+	margin: 30px 30px 30px 0px;
 }
 
-.thumbnail > label {
-    border: 1px solid black;
+.thumbnail>label {
+	border: 1px solid black;
 	text-align: center;
 	padding: 5px;
 	color: grey;
-    border-radius: 8px;
+	border-radius: 8px;
 }
 
-.thumbnail > label >  select{
-    padding: 5px;
+.thumbnail>label>select {
+	padding: 5px;
 	margin-left: 8px;
 	border-radius: 8px;
 }
 
-.navbar-brand, .offcanvas-title {
-    font-family: "Borel", cursive;
-    font-style: normal;
+.navbar-brand,
+.offcanvas-title {
+	font-family: "Borel", cursive;
+	font-style: normal;
 	padding-top: 10px;
 	padding-left: 10px;
 
 }
 
-input[type="checkbox"]{
+input[type="checkbox"] {
 	width: 20px;
 	height: 20px;
 }
-.nav-item > label {
+
+.nav-item>label {
 	font-size: 20px;
 	padding: 10px;
 }
 
-.error{
+.error {
 	font-size: 44px;
 	text-align: center;
 	padding: 20%;
 }
 
 select {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-  }
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+#thumbnailBox {
+	display: flex;
+	justify-content: center;
+	margin-left: 0;
+}
+
+
+@media screen and (max-width: 480px) {
+	#thumbnailBox {
+		display: block;
+		margin-left: 20%;
+	}
+}

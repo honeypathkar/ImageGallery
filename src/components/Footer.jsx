@@ -10,7 +10,7 @@ export default function Footer() {
           <p class="card-text">
             Image are provides by Pexels. A very good images library.
           </p>
-          <a href="https://www.pexels.com" class="btn btn-primary" target="_blank">
+          <a href="https://www.pexels.com" class="btn btn-outline-primary" target="_blank">
             Pexels
           </a>
         </div>
