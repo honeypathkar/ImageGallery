@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Gallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import Spinner from "./Spinner";
-import "./style.css";
+import "./css/style.css";
 
 export default function Image(props) {
   const { showBullet, showIndex, showThumb, playButton, fullScreen, showNav } =
