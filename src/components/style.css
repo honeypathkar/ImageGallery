@@ -17,20 +17,6 @@
 	border-radius: 8px;
 }
 
-.bullets > label {
-    border: 1px solid black;
-	text-align: center;
-	padding: 5px;
-	color: grey;
-    border-radius: 8px;
-}
-
-.bullets > label >  select{
-    padding: 5px;
-	margin-left: 8px;
-	border-radius: 8px;
-}
-
 .navbar-brand, .offcanvas-title {
     font-family: "Borel", cursive;
     font-style: normal;
@@ -53,3 +39,9 @@ input[type="checkbox"]{
 	text-align: center;
 	padding: 20%;
 }
+
+select {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }

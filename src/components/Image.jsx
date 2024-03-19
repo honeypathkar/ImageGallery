@@ -83,7 +83,15 @@ export default function Image(props) {
           aria-describedby="button-addon1"
           onChange={(e) => setSearch(e.target.value)}
           style={{ borderRadius: "20px 0 0 20px" }}
+          list="datalistOptions"
         />
+        <datalist id="datalistOptions">
+          <option value="Car" />
+          <option value="Mountain" />
+          <option value="Sky" />
+          <option value="Rainbow" />
+          <option value="Birds" />
+        </datalist>
       </div>
       {loading && <Spinner />}
       {error && (

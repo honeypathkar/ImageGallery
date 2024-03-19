@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import Image from "./components/Image";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 function App() {
   const [showBullet, setShowBullet] = useState(false);
@@ -36,6 +37,8 @@ function App() {
         showThumb={showThumb}
         showNav={showNav}
       />
+      <Footer/>
+      
     </>
   );
 }

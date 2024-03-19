@@ -18,7 +18,7 @@ export default function Navbar(props) {
   } = props;
   return (
     <div>
-      <nav className="navbar bg-body-tertiary fixed-top">
+      <nav className="navbar fixed-top" style={{backgroundColor: "#e3f2fd"}}>
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
             Image Gallery
@@ -38,6 +38,7 @@ export default function Navbar(props) {
             tabindex="-1"
             id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel"
+            style={{backgroundColor: "#e3f2fd"}}
           >
             <div className="offcanvas-header">
               <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
