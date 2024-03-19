@@ -1,0 +1,55 @@
+.thumbnail {
+    display: flex;
+    margin: 30px 30px 30px 0px;
+}
+
+.thumbnail > label {
+    border: 1px solid black;
+	text-align: center;
+	padding: 5px;
+	color: grey;
+    border-radius: 8px;
+}
+
+.thumbnail > label >  select{
+    padding: 5px;
+	margin-left: 8px;
+	border-radius: 8px;
+}
+
+.bullets > label {
+    border: 1px solid black;
+	text-align: center;
+	padding: 5px;
+	color: grey;
+    border-radius: 8px;
+}
+
+.bullets > label >  select{
+    padding: 5px;
+	margin-left: 8px;
+	border-radius: 8px;
+}
+
+.navbar-brand, .offcanvas-title {
+    font-family: "Borel", cursive;
+    font-style: normal;
+	padding-top: 10px;
+	padding-left: 10px;
+
+}
+
+input[type="checkbox"]{
+	width: 20px;
+	height: 20px;
+}
+.nav-item > label {
+	font-size: 20px;
+	padding: 10px;
+}
+
+.error{
+	font-size: 44px;
+	text-align: center;
+	padding: 20%;
+}

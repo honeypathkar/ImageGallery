@@ -2,17 +2,22 @@ import React, { useState, useEffect } from "react";
 import Gallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import Spinner from "./Spinner";
-import "./Images.css"
+import "./style.css";
 
-export default function Image() {
+export default function Image(props) {
+  const { showBullet, showIndex, showThumb, playButton, fullScreen, showNav } =
+    props;
   const [photos, setPhotos] = useState([]);
   const [search, setSearch] = useState("nature");
   const [loading, setLoading] = useState(true);
-  const [pos, setPos] = useState('bottom');
+  const [pos, setPos] = useState("bottom");
+  const [error, setError] = useState(false);
+  const [imageOrientaion, setImageOrientaion] = useState("landscape");
 
-  const handlePos = newPos => {
+  const handlePos = (newPos) => {
     setPos(newPos);
   };
+
   const fetchImages = async () => {
     try {
       setLoading(true);
@@ -30,16 +35,29 @@ export default function Image() {
       }
       const data = await response.json();
       console.log(data);
-      setPhotos(
-        data.photos.map((photo) => ({
-          original: photo.src.landscape,
-          thumbnail: photo.src.landscape,
-          description: photo.photographer,
-        }))
-      );
+      if (data.photos.length === 0) {
+        setError(true);
+      } else {
+        setPhotos(
+          data.photos.map((photo) => ({
+            original:
+              imageOrientaion === "landscape"
+                ? photo.src.landscape
+                : photo.src.portrait,
+            thumbnail:
+              imageOrientaion === "landscape"
+                ? photo.src.landscape
+                : photo.src.portrait,
+            description: photo.photographer,
+          }))
+        );
+        setError(false);
+      }
       setLoading(false);
     } catch (error) {
       console.error("Error fetching images:", error);
+      setError(true);
+      setLoading(false);
     }
   };
 
@@ -48,10 +66,14 @@ export default function Image() {
       fetchImages();
     }, 3000);
     return () => clearTimeout(timer);
-  }, [search]);
+  }, [search, imageOrientaion]);
+
+  const handleImageOrientation = (orientation) => {
+    setImageOrientaion(orientation);
+  };
 
   return (
-    <div className="container">
+    <div className="container" style={{ marginTop: "80px" }}>
       <div className="input-group mb-3">
         <input
           type="search"
@@ -64,29 +86,46 @@ export default function Image() {
         />
       </div>
       {loading && <Spinner />}
-      {!loading && (
+      {error && (
+        <div className="error text-danger ">Images not Found. Try again!</div>
+      )}
+      {!loading && !error && (
         <Gallery
           items={photos}
-          showIndex="true"
-          showBullets="true"
+          showIndex={showIndex}
+          showBullets={showBullet}
+          showThumbnails={showThumb}
+          showFullscreenButton={fullScreen}
+          showPlayButton={playButton}
+          showNav={showNav}
           thumbnailPosition={pos}
           onThumbnailPositionChanged={handlePos}
         />
       )}
       <div className="thumbnail">
-      <label>
+        <label>
           Thumbnail Position:
-          <select
-            value={pos}
-            onChange={e => handlePos(e.target.value)}
-          >
+          <select value={pos} onChange={(e) => handlePos(e.target.value)}>
             <option value="bottom">Bottom</option>
             <option value="top">Top</option>
             <option value="left">Left</option>
             <option value="right">Right</option>
           </select>
         </label>
-        </div>
+      </div>
+
+      <div className="thumbnail">
+        <label>
+          Image Orientaion:
+          <select
+            value={imageOrientaion}
+            onChange={(e) => handleImageOrientation(e.target.value)}
+          >
+            <option value="landscape">Landscape</option>
+            <option value="portrait">Portrait</option>
+          </select>
+        </label>
+      </div>
     </div>
   );
 }
