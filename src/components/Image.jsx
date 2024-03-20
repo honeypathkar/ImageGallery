@@ -125,6 +125,7 @@ export default function Image(props) {
               value={pos}
               onChange={(e) => handlePos(e.target.value)}
               className="btn btn-outline-primary"
+              disabled={showThumb === false}
             >
               <option value="bottom">Bottom</option>
               <option value="top">Top</option>
