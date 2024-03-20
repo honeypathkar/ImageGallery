@@ -77,7 +77,6 @@ export default function Image(props) {
     setPos(newPos);
   };
 
-
   return (
     <div className="container" style={{ marginTop: "80px" }}>
       <div className="input-group mb-3">
@@ -104,45 +103,50 @@ export default function Image(props) {
         <div className="error text-danger ">Images not Found. Try again!</div>
       )}
       {!loading && !error && (
-        <Gallery
-          items={photos}
-          showIndex={showIndex}
-          showBullets={showBullet}
-          showThumbnails={showThumb}
-          showFullscreenButton={fullScreen}
-          showPlayButton={playButton}
-          showNav={showNav}
-          thumbnailPosition={pos}
-          onThumbnailPositionChanged={handlePos}
-        />
+        <div>
+          <Gallery
+            items={photos}
+            showIndex={showIndex}
+            showBullets={showBullet}
+            showThumbnails={showThumb}
+            showFullscreenButton={fullScreen}
+            showPlayButton={playButton}
+            showNav={showNav}
+            thumbnailPosition={pos}
+            onThumbnailPositionChanged={handlePos}
+          />
+        </div>
       )}
       <div id="thumbnailBox">
-      <div className="thumbnail">
-        <label>
-          Thumbnail Position:
-          <select value={pos} onChange={(e) => handlePos(e.target.value)} className="from-select">
-            <option value="bottom">Bottom</option>
-            <option value="top">Top</option>
-            <option value="left">Left</option>
-            <option value="right">Right</option>
-          </select>
-        </label>
-      </div>
+        <div className="thumbnail">
+          <label>
+            Thumbnail Position:
+            <select
+              value={pos}
+              onChange={(e) => handlePos(e.target.value)}
+              className="from-select"
+            >
+              <option value="bottom">Bottom</option>
+              <option value="top">Top</option>
+              <option value="left">Left</option>
+              <option value="right">Right</option>
+            </select>
+          </label>
+        </div>
 
-      <div className="thumbnail">
-        <label>
-          Image Orientaion:
-          <select
-            value={imageOrientaion}
-            onChange={(e) => handleImageOrientation(e.target.value)}
-          >
-            <option value="landscape">Landscape</option>
-            <option value="portrait">Portrait</option>
-          </select>
-        </label>
+        <div className="thumbnail">
+          <label>
+            Image Orientaion:
+            <select
+              value={imageOrientaion}
+              onChange={(e) => handleImageOrientation(e.target.value)}
+            >
+              <option value="landscape">Landscape</option>
+              <option value="portrait">Portrait</option>
+            </select>
+          </label>
+        </div>
       </div>
-      </div>
-      
     </div>
   );
 }

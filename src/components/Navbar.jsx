@@ -16,6 +16,8 @@ export default function Navbar(props) {
     setFullScreen,
     setShowNav,
   } = props;
+
+  console.clear();
   return (
     <div>
       <nav className="navbar fixed-top" style={{ backgroundColor: "#e3f2fd" }}>
@@ -102,7 +104,7 @@ export default function Navbar(props) {
                 <li className="nav-item" style={{padding: "10px 30px"}}>
                   <a
                     href="https://github.com/honeypatkar/ImageGallery"
-                    class="btn btn-outline-primary"
+                    className="btn btn-outline-primary"
                     target="_blank"
                   >
                     View on Github
