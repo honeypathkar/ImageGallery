@@ -22,7 +22,7 @@ export default function Navbar(props) {
     <div>
       <nav className="navbar fixed-top" style={{ backgroundColor: "#e3f2fd" }}>
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand" href="#" style={{paddingTop: "20px", fontSize: "25px"}}>
             Image Gallery
           </a>
           <button

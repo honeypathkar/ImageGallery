@@ -78,7 +78,7 @@ export default function Image(props) {
   };
 
   return (
-    <div className="container" style={{ marginTop: "80px" }}>
+    <div className="container" style={{ marginTop: "100px" }}>
       <div className="input-group mb-3">
         <input
           type="search"
@@ -124,7 +124,7 @@ export default function Image(props) {
             <select
               value={pos}
               onChange={(e) => handlePos(e.target.value)}
-              className="from-select"
+              className="btn btn-outline-primary"
             >
               <option value="bottom">Bottom</option>
               <option value="top">Top</option>
@@ -140,6 +140,7 @@ export default function Image(props) {
             <select
               value={imageOrientaion}
               onChange={(e) => handleImageOrientation(e.target.value)}
+              className="btn btn-outline-primary"
             >
               <option value="landscape">Landscape</option>
               <option value="portrait">Portrait</option>
