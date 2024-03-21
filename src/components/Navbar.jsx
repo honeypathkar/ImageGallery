@@ -17,12 +17,16 @@ export default function Navbar(props) {
     setShowNav,
   } = props;
 
-  console.clear();
+  // console.clear();
   return (
     <div>
       <nav className="navbar fixed-top" style={{ backgroundColor: "#e3f2fd" }}>
         <div className="container-fluid">
-          <a className="navbar-brand" href="#" style={{paddingTop: "20px", fontSize: "25px"}}>
+          <a
+            className="navbar-brand"
+            href="#"
+            style={{ paddingTop: "20px", fontSize: "25px" }}
+          >
             Image Gallery
           </a>
           <button
@@ -101,7 +105,8 @@ export default function Navbar(props) {
                   />
                   <label>Show Navigation</label>
                 </li>
-                <li className="nav-item" style={{padding: "10px 30px"}}>
+                
+                <li className="nav-item" style={{ padding: "10px 30px" }}>
                   <a
                     href="https://github.com/honeypatkar/ImageGallery"
                     className="btn btn-outline-primary"

@@ -35,7 +35,6 @@ export default function Image(props) {
         throw new Error("Failed to fetch images");
       }
       const data = await response.json();
-      console.log(data);
       if (data.photos.length === 0) {
         setError(true);
       } else {
@@ -114,6 +113,9 @@ export default function Image(props) {
             showNav={showNav}
             thumbnailPosition={pos}
             onThumbnailPositionChanged={handlePos}
+            loading="eager"
+            thumbnailLoading="eager"
+            slideOnThumbnailOver="true"
           />
         </div>
       )}
