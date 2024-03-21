@@ -114,7 +114,7 @@ export default function Image(props) {
             thumbnailPosition={pos}
             onThumbnailPositionChanged={handlePos}
             loading="eager"
-            thumbnailLoading="eager"
+            
             slideOnThumbnailOver="true"
           />
         </div>
